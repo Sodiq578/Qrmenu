@@ -97,7 +97,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(' https://avatars.mds.yandex.net/get-altay/6249106/2a0000017f8362fc30a8d80c828127907a5e/L_height');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://avatars.mds.yandex.net/get-altay/6249106/2a0000017f8362fc30a8d80c828127907a5e/L_height');
             background-size: cover;
             background-position: center;
             z-index: -2;
@@ -191,6 +191,7 @@
         .nav-links a:hover {
             background-color: var(--primary-color);
             color: white;
+            transform: translateY(-2px);
         }
 
         .nav-links a i {
@@ -345,7 +346,7 @@
         /* Modal */
         .modal {
             position: fixed;
-            top: 0;
+            top: 10%;
             left: 0;
             width: 100%;
             height: 100%;
@@ -354,7 +355,9 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            padding: 20px;
+            padding: 10px;
+            overflow: hidden;
+            border-radius: 20px;
         }
 
         .modal-content {
@@ -362,21 +365,22 @@
             border-radius: 10px;
             max-width: 800px;
             width: 100%;
-            max-height: 90vh;
+            max-height: 95vh;
             overflow-y: auto;
             position: relative;
             animation: zoomIn 0.3s ease;
+            box-sizing: border-box;
         }
 
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             background: var(--primary-color);
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -392,39 +396,41 @@
 
         .modal-img {
             width: 100%;
-            height: 300px;
+            height: 250px;
             object-fit: cover;
         }
 
         .modal-body {
-            padding: 30px;
+            padding: 20px;
         }
 
         .modal-title {
-            font-size: 2rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
             color: var(--dark-color);
         }
 
         .modal-description {
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
         .modal-details {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .modal-details h4 {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--dark-color);
+            font-size: 1.1rem;
         }
 
         .modal-price {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .modal-actions {
@@ -432,7 +438,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
         }
 
         .quantity-selector {
@@ -446,13 +452,13 @@
         .quantity-btn {
             background: #f1f1f1;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             transition: var(--transition);
         }
 
@@ -461,11 +467,11 @@
         }
 
         .quantity-input {
-            width: 60px;
-            height: 40px;
+            width: 50px;
+            height: 36px;
             border: none;
             text-align: center;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
         }
 
@@ -473,13 +479,14 @@
             background: var(--primary-color);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .add-to-cart-large:hover {
@@ -487,7 +494,7 @@
         }
 
         .add-to-cart-large i {
-            margin-right: 8px;
+            margin-right: 6px;
         }
 
         /* Cart Modal */
@@ -664,6 +671,26 @@
             background: rgba(0, 0, 0, 0.2);
             padding: 20px 0;
             text-align: center;
+            position: relative;
+        }
+
+        .admin-access-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .admin-access-btn:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Table Selection */
@@ -701,6 +728,249 @@
         .table-option.selected {
             background: var(--primary-color);
             color: white;
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .admin-panel.active {
+            right: 0;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .admin-header h2 {
+            color: var(--primary-color);
+        }
+
+        .admin-close {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .admin-close:hover {
+            background: var(--secondary-color);
+        }
+
+        .admin-section {
+            margin-bottom: 25px;
+        }
+
+        .admin-section h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .admin-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(194, 54, 22, 0.1);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #a52c11;
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #c99c1f;
+        }
+
+        .btn-danger {
+            background: #ff4757;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #ff6b81;
+        }
+
+        .admin-list {
+            list-style: none;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .admin-list-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .item-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .item-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .item-btn-edit {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .item-btn-delete {
+            background: #ff4757;
+            color: white;
+        }
+
+        .item-btn:hover {
+            opacity: 0.8;
+        }
+
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .login-content {
+            background: white;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .login-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .login-close:hover {
+            background: var(--secondary-color);
         }
 
         /* Animatsiyalar */
@@ -802,6 +1072,19 @@
             
             .quantity-selector {
                 align-self: center;
+            }
+            
+            .admin-panel {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .admin-access-btn {
+                position: relative;
+                bottom: unset;
+                right: unset;
+                margin-top: 15px;
+                display: inline-block;
             }
         }
 
@@ -982,6 +1265,96 @@
         <span class="cart-count" id="cartCount">0</span>
     </div>
 
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h2>Admin Panel</h2>
+            <button class="admin-close" id="adminClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="admin-section">
+            <h3>Yangi taom qo'shish</h3>
+            <div class="admin-form" id="addItemForm">
+                <div class="form-group">
+                    <label for="itemCategory">Kategoriya</label>
+                    <select id="itemCategory">
+                        <option value="taomlar">Taomlar</option>
+                        <option value="salatlar">Salatlar</option>
+                        <option value="ichimliklar">Ichimliklar</option>
+                        <option value="qoshimchalar">Qo'shimchalar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="itemName">Nomi</label>
+                    <input type="text" id="itemName" placeholder="Taom nomi">
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Tavsifi</label>
+                    <textarea id="itemDescription" placeholder="Taom tavsifi" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemImage">Rasm URL</label>
+                    <input type="text" id="itemImage" placeholder="Rasm manzili">
+                </div>
+                <div class="form-group">
+                    <label for="itemIngredients">Tarkibi</label>
+                    <textarea id="itemIngredients" placeholder="Tarkibiy qismlar" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Narxi (so'm)</label>
+                    <input type="number" id="itemPrice" placeholder="Narxi">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-primary" onclick="addMenuItem()">
+                        <i class="fas fa-plus"></i> Qo'shish
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h3>Mavjud taomlar</h3>
+            <div class="admin-list" id="itemsList">
+                <!-- Items will be loaded here -->
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h3>Buyurtmalar tarixi</h3>
+            <div class="admin-list" id="ordersList">
+                <!-- Orders will be loaded here -->
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h3>Tizim sozlamalari</h3>
+            <div class="form-actions">
+                <button class="btn btn-danger" onclick="clearAllData()">
+                    <i class="fas fa-trash"></i> Barcha ma'lumotlarni tozalash
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-content">
+            <button class="login-close" onclick="closeLoginModal()"><i class="fas fa-times"></i></button>
+            <h2 style="text-align: center; margin-bottom: 20px; color: var(--primary-color);">Admin Kirish</h2>
+            <div class="form-group">
+                <label for="adminCode">Maxfiy kod</label>
+                <input type="password" id="adminCode" placeholder="Maxfiy kodni kiriting">
+            </div>
+            <div class="form-actions" style="margin-top: 20px;">
+                <button class="btn btn-primary" onclick="checkAdminCode()" style="width: 100%;">
+                    <i class="fas fa-lock"></i> Kirish
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="uzbek-pattern"></div>
@@ -1010,15 +1383,18 @@
         </div>
         <div class="footer-bottom">
             <p>© 2025 O'zbek Milliy Taomlari. Barcha huquqlar himoyalangan.</p>
+            <button class="admin-access-btn" onclick="openAdminLogin()">
+                <i class="fas fa-lock"></i> Faqat admin uchun
+            </button>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
         // JSON ma'lumotlar
-        const menuData = {
+        let menuData = {
             "taomlar": [
-                    {
+                {
                     "id": 1,
                     "name": "Palov",
                     "description": "O‘zbekistonning milliy taomi - guruch, go‘sht, sabzi va ziravorlardan tayyorlanadi. Uydagi kabi mazali va to‘yimli.",
@@ -1042,7 +1418,6 @@
                     "ingredients": "Xamir, mol go‘shti, piyoz, zira, qora murch",
                     "price": "25 000 so‘m"
                 },
-
                 {
                     "id": 4,
                     "name": "Shashlik",
@@ -1144,8 +1519,7 @@
                     "image": "https://optom.app/5485-large_default/duxovka-non-1200g.jpg",
                     "ingredients": "Un, suv, xamirturush, tuz",
                     "price": "5 000 so‘m"
-                },
-            
+                }
             ]
         };
 
@@ -1154,6 +1528,7 @@
         let selectedTable = null;
         const BOT_TOKEN = '8446018868:AAGMBw9ZFI2gDP3a_XA7qpVDX4_ar76IxlU';
         const CHAT_ID = '-4819765275';
+        const ADMIN_CODE = "1234"; // Maxfiy admin kodi
 
         // Loader
         window.addEventListener('load', () => {
@@ -1163,9 +1538,16 @@
                 loader.style.display = 'none';
             }, 500);
             
+            // Load data from localStorage if available
+            loadFromLocalStorage();
+            
             // Menuni yuklash
             loadMenuItems();
             setupTableSelection();
+            
+            // Load items and orders for admin panel
+            loadItemsForAdmin();
+            loadOrders();
         });
 
         // Mobile Menu
@@ -1180,12 +1562,76 @@
         });
 
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
+   document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+
+        // Admin panel functions
+        document.getElementById('adminClose').addEventListener('click', () => {
+            document.getElementById('adminPanel').classList.remove('active');
         });
+
+        function openAdminLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function checkAdminCode() {
+            const code = document.getElementById('adminCode').value;
+            if (code === ADMIN_CODE) {
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('adminPanel').classList.add('active');
+                document.getElementById('adminCode').value = '';
+            } else {
+                alert('Noto‘g‘ri kod! Iltimos, qayta urinib ko‘ring.');
+            }
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('adminCode').value = '';
+        }
+
+        // LocalStorage functions
+        function saveToLocalStorage() {
+            localStorage.setItem('menuData', JSON.stringify(menuData));
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('selectedTable', selectedTable);
+            
+            // Save orders if exists
+            const orders = localStorage.getItem('orders');
+            if (!orders) {
+                localStorage.setItem('orders', JSON.stringify([]));
+            }
+        }
+
+        function loadFromLocalStorage() {
+            const savedMenuData = localStorage.getItem('menuData');
+            const savedCart = localStorage.getItem('cart');
+            const savedTable = localStorage.getItem('selectedTable');
+            
+            if (savedMenuData) {
+                menuData = JSON.parse(savedMenuData);
+            }
+            
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCart();
+            }
+            
+            if (savedTable) {
+                selectedTable = savedTable;
+                // Highlight selected table
+                document.querySelectorAll('.table-option').forEach(option => {
+                    if (option.getAttribute('data-table') === selectedTable) {
+                        option.classList.add('selected');
+                    }
+                });
+            }
+        }
 
         // Stol tanlashni sozlash
         function setupTableSelection() {
@@ -1197,6 +1643,7 @@
                     // Yangisini tanlaymiz
                     option.classList.add('selected');
                     selectedTable = option.getAttribute('data-table');
+                    localStorage.setItem('selectedTable', selectedTable);
                 });
             });
         }
@@ -1205,24 +1652,28 @@
         function loadMenuItems() {
             // Taomlarni yuklash
             const taomlarGrid = document.getElementById('taomlar-grid');
+            taomlarGrid.innerHTML = '';
             menuData.taomlar.forEach(item => {
                 taomlarGrid.innerHTML += createMenuItem(item);
             });
 
             // Salatlarni yuklash
             const salatlarGrid = document.getElementById('salatlar-grid');
+            salatlarGrid.innerHTML = '';
             menuData.salatlar.forEach(item => {
                 salatlarGrid.innerHTML += createMenuItem(item);
             });
 
             // Ichimliklarni yuklash
             const ichimliklarGrid = document.getElementById('ichimliklar-grid');
+            ichimliklarGrid.innerHTML = '';
             menuData.ichimliklar.forEach(item => {
                 ichimliklarGrid.innerHTML += createMenuItem(item);
             });
 
             // Qo'shimchalarni yuklash
             const qoshimchalarGrid = document.getElementById('qoshimchalar-grid');
+            qoshimchalarGrid.innerHTML = '';
             menuData.qoshimchalar.forEach(item => {
                 qoshimchalarGrid.innerHTML += createMenuItem(item);
             });
@@ -1231,7 +1682,7 @@
         // Menu item yaratish funksiyasi
         function createMenuItem(item) {
             return `
-                <div class="menu-item" onclick="openModal('${item.name}', '${item.description}', '${item.image}', '${item.ingredients}', '${item.price}')">
+                <div class="menu-item" onclick="openModal('${item.name}', '${item.description}', '${item.image}', '${item.ingredients}', '${item.price}', ${item.id}, '${Object.keys(menuData).find(key => menuData[key].includes(item))}')">
                     <img src="${item.image}" alt="${item.name}" class="menu-img">
                     <div class="menu-content">
                         <h3>${item.name}</h3>
@@ -1243,6 +1694,244 @@
                     </div>
                 </div>
             `;
+        }
+
+        // Admin panel uchun itemlarni yuklash
+        function loadItemsForAdmin() {
+            const itemsList = document.getElementById('itemsList');
+            itemsList.innerHTML = '';
+            
+            // Combine all items from all categories
+            let allItems = [];
+            Object.keys(menuData).forEach(category => {
+                menuData[category].forEach(item => {
+                    allItems.push({...item, category});
+                });
+            });
+            
+            if (allItems.length === 0) {
+                itemsList.innerHTML = '<div class="admin-list-item">Hech qanday taom mavjud emas</div>';
+            } else {
+                allItems.forEach(item => {
+                    itemsList.innerHTML += `
+                        <div class="admin-list-item">
+                            <div class="item-info">
+                                <h4>${item.name}</h4>
+                                <p>${item.category} | ${item.price}</p>
+                            </div>
+                            <div class="item-actions">
+                                <button class="item-btn item-btn-edit" onclick="editItem(${item.id}, '${item.category}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="item-btn item-btn-delete" onclick="deleteItem(${item.id}, '${item.category}')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // Buyurtmalarni yuklash
+        function loadOrders() {
+            const ordersList = document.getElementById('ordersList');
+            ordersList.innerHTML = '';
+            
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            
+            if (orders.length === 0) {
+                ordersList.innerHTML = '<div class="admin-list-item">Hali buyurtmalar mavjud emas</div>';
+            } else {
+    orders.forEach((order, index) => {
+        ordersList.innerHTML += `
+            <div class="admin-list-item">
+                <div class="item-info">
+                    <h4>Buyurtma #${index + 1}</h4>
+                    <p>Stol: ${order.table} | Vaqt: ${order.time}</p>
+                    <p>Jami: ${order.total}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+        }
+
+        // Yangi taom qo'shish
+        function addMenuItem() {
+            const category = document.getElementById('itemCategory').value;
+            const name = document.getElementById('itemName').value;
+            const description = document.getElementById('itemDescription').value;
+            const image = document.getElementById('itemImage').value;
+            const ingredients = document.getElementById('itemIngredients').value;
+            const price = document.getElementById('itemPrice').value;
+            
+            if (!name || !description || !image || !ingredients || !price) {
+                alert('Iltimos, barcha maydonlarni to‘ldiring!');
+                return;
+            }
+            
+            // Generate a unique ID
+            const id = Date.now();
+            
+            const newItem = {
+                id,
+                name,
+                description,
+                image,
+                ingredients,
+                price: price + ' so‘m'
+            };
+            
+            // Add to the appropriate category
+            menuData[category].push(newItem);
+            
+            // Save to localStorage
+            saveToLocalStorage();
+            
+            // Reload menu items
+            loadMenuItems();
+            loadItemsForAdmin();
+            
+            // Clear form
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemDescription').value = '';
+            document.getElementById('itemImage').value = '';
+            document.getElementById('itemIngredients').value = '';
+            document.getElementById('itemPrice').value = '';
+            
+            alert('Yangi taom muvaffaqiyatli qo‘shildi!');
+        }
+
+        // Taomni tahrirlash
+        function editItem(id, category) {
+            const item = menuData[category].find(item => item.id === id);
+            if (!item) return;
+            
+            // Fill the form with item data
+            document.getElementById('itemCategory').value = category;
+            document.getElementById('itemName').value = item.name;
+            document.getElementById('itemDescription').value = item.description;
+            document.getElementById('itemImage').value = item.image;
+            document.getElementById('itemIngredients').value = item.ingredients;
+            document.getElementById('itemPrice').value = parseInt(item.price);
+            
+            // Scroll to form
+            document.getElementById('addItemForm').scrollIntoView();
+            
+            // Change add button to update button temporarily
+            const addButton = document.querySelector('#addItemForm .btn-primary');
+            addButton.innerHTML = '<i class="fas fa-save"></i> Yangilash';
+            addButton.onclick = function() {
+                updateMenuItem(id, category);
+            };
+        }
+
+        // Taomni yangilash
+        function updateMenuItem(id, oldCategory) {
+            const category = document.getElementById('itemCategory').value;
+            const name = document.getElementById('itemName').value;
+            const description = document.getElementById('itemDescription').value;
+            const image = document.getElementById('itemImage').value;
+            const ingredients = document.getElementById('itemIngredients').value;
+            const price = document.getElementById('itemPrice').value;
+            
+            if (!name || !description || !image || !ingredients || !price) {
+                alert('Iltimos, barcha maydonlarni to‘ldiring!');
+                return;
+            }
+            
+            // Find the item index
+            let itemIndex = menuData[oldCategory].findIndex(item => item.id === id);
+            
+            if (itemIndex === -1) {
+                alert('Taom topilmadi!');
+                return;
+            }
+            
+            // If category changed, remove from old and add to new
+            if (oldCategory !== category) {
+                const item = menuData[oldCategory][itemIndex];
+                menuData[oldCategory].splice(itemIndex, 1);
+                
+                // Update the item
+                item.name = name;
+                item.description = description;
+                item.image = image;
+                item.ingredients = ingredients;
+                item.price = price + ' so‘m';
+                
+                menuData[category].push(item);
+            } else {
+                // Just update the item in the same category
+                menuData[category][itemIndex].name = name;
+                menuData[category][itemIndex].description = description;
+                menuData[category][itemIndex].image = image;
+                menuData[category][itemIndex].ingredients = ingredients;
+                menuData[category][itemIndex].price = price + ' so‘m';
+            }
+            
+            // Save to localStorage
+            saveToLocalStorage();
+            
+            // Reload menu items
+            loadMenuItems();
+            loadItemsForAdmin();
+            
+            // Clear form and reset button
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemDescription').value = '';
+            document.getElementById('itemImage').value = '';
+            document.getElementById('itemIngredients').value = '';
+            document.getElementById('itemPrice').value = '';
+            
+            const addButton = document.querySelector('#addItemForm .btn-primary');
+            addButton.innerHTML = '<i class="fas fa-plus"></i> Qo‘shish';
+            addButton.onclick = addMenuItem;
+            
+            alert('Taom muvaffaqiyatli yangilandi!');
+        }
+
+        // Taomni o'chirish
+        function deleteItem(id, category) {
+            if (!confirm('Haqiqatan ham bu taomni o‘chirmoqchimisiz?')) return;
+            
+            const itemIndex = menuData[category].findIndex(item => item.id === id);
+            
+            if (itemIndex === -1) {
+                alert('Taom topilmadi!');
+                return;
+            }
+            
+            menuData[category].splice(itemIndex, 1);
+            
+            // Save to localStorage
+            saveToLocalStorage();
+            
+            // Reload menu items
+            loadMenuItems();
+            loadItemsForAdmin();
+            
+            alert('Taom muvaffaqiyatli o‘chirildi!');
+        }
+
+        // Barcha ma'lumotlarni tozalash
+        function clearAllData() {
+            if (!confirm('Haqiqatan ham BARCHA ma\'lumotlarni o‘chirmoqchimisiz? Bu amalni ortga qaytarib bo‘lmaydi!')) return;
+            
+            localStorage.clear();
+            menuData = { taomlar: [], salatlar: [], ichimliklar: [], qoshimchalar: [] };
+            cart = [];
+            selectedTable = null;
+            
+            // Reload everything
+            loadMenuItems();
+            loadItemsForAdmin();
+            loadOrders();
+            updateCart();
+            
+            alert('Barcha ma\'lumotlar tozalandi!');
         }
 
         // Cart funksiyalari
@@ -1271,7 +1960,7 @@
                 animation: slideIn 0.3s ease;
                 font-weight: 600;
             `;
-            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${name} savatga qo'shildi!`;
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${name} savatga qo‘shildi!`;
             document.body.appendChild(notification);
             
             setTimeout(() => {
@@ -1280,6 +1969,9 @@
                     document.body.removeChild(notification);
                 }, 300);
             }, 2000);
+            
+            // Save to localStorage
+            saveToLocalStorage();
         }
 
         function addToCartFromModal() {
@@ -1294,6 +1986,7 @@
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCart();
+            saveToLocalStorage();
         }
 
         function clearCart() {
@@ -1301,6 +1994,7 @@
             if (confirm('Haqiqatan ham savatni tozalamoqchimisiz?')) {
                 cart = [];
                 updateCart();
+                saveToLocalStorage();
             }
         }
 
@@ -1340,7 +2034,7 @@
         }
 
         // Modal funksiyalari
-        function openModal(title, description, img, ingredients, price) {
+        function openModal(title, description, img, ingredients, price, id, category) {
             const modal = document.getElementById('menuModal');
             const modalTitle = document.getElementById('modalTitle');
             const modalDescription = document.getElementById('modalDescription');
@@ -1408,12 +2102,25 @@
             orderMessage += `\n💰 Jami: ${total.toLocaleString()} so'm`;
             orderMessage += `\n\n⏰ Vaqt: ${new Date().toLocaleString('uz-UZ')}`;
             
+            // Save order to history
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            orders.push({
+                table: selectedTable,
+                items: cart,
+                total: `${total.toLocaleString()} so'm`,
+                time: new Date().toLocaleString('uz-UZ')
+            });
+            localStorage.setItem('orders', JSON.stringify(orders));
+            
             // Telegramga xabar yuborish
             sendTelegramMessage(orderMessage);
             
             alert('Buyurtmangiz qabul qilindi! Tez orada siz bilan bog\'lanamiz.\nJami: ' + document.getElementById('cartTotal').textContent);
             clearCart();
             closeCartModal();
+            
+            // Reload orders in admin panel
+            loadOrders();
         }
 
         // Telegramga xabar yuborish funksiyasi
@@ -1445,6 +2152,9 @@
             if (event.target.classList.contains('modal')) {
                 closeModal();
                 closeCartModal();
+            }
+            if (event.target.classList.contains('login-modal')) {
+                closeLoginModal();
             }
         });
 
