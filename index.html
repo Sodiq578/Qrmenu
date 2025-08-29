@@ -97,7 +97,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(' https://avatars.mds.yandex.net/get-altay/6249106/2a0000017f8362fc30a8d80c828127907a5e/L_height');
             background-size: cover;
             background-position: center;
             z-index: -2;
@@ -222,6 +222,9 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 30px;
         }
 
         .hero h2 {
@@ -663,6 +666,43 @@
             text-align: center;
         }
 
+        /* Table Selection */
+        .table-selection {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .table-selection h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .table-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .table-option {
+            padding: 10px 15px;
+            background: #f1f1f1;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .table-option:hover {
+            background: #e1e1e1;
+        }
+
+        .table-option.selected {
+            background: var(--primary-color);
+            color: white;
+        }
+
         /* Animatsiyalar */
         @keyframes fadeInDown {
             from {
@@ -804,7 +844,7 @@
         <div class="header-bg"></div>
         <div class="uzbek-pattern"></div>
         <div class="container header-content">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Restoran Logosi" class="logo">
+            <img src="https://avatars.mds.yandex.net/get-altay/6249106/2a0000017f8362fc30a8d80c828127907a5e/L_height" alt="Restoran Logosi" class="logo">
             <h1>O'zbek Milliy Taomlari</h1>
             <p>An'anaviy ta'mlar - zamonaviy uslubda</p>
         </div>
@@ -837,6 +877,21 @@
 
     <!-- Main Content -->
     <div class="container">
+        <!-- Table Selection -->
+        <div class="table-selection">
+            <h3>Stolni tanlang:</h3>
+            <div class="table-options" id="tableOptions">
+                <div class="table-option" data-table="1">Stol 1</div>
+                <div class="table-option" data-table="2">Stol 2</div>
+                <div class="table-option" data-table="3">Stol 3</div>
+                <div class="table-option" data-table="4">Stol 4</div>
+                <div class="table-option" data-table="5">Stol 5</div>
+                <div class="table-option" data-table="6">Stol 6</div>
+                <div class="table-option" data-table="7">Stol 7</div>
+                <div class="table-option" data-table="8">Stol 8</div>
+            </div>
+        </div>
+
         <!-- Taomlar -->
         <section id="taomlar">
             <div class="section-title">
@@ -963,7 +1018,7 @@
         // JSON ma'lumotlar
         const menuData = {
             "taomlar": [
-                {
+                    {
                     "id": 1,
                     "name": "Palov",
                     "description": "O‘zbekistonning milliy taomi - guruch, go‘sht, sabzi va ziravorlardan tayyorlanadi. Uydagi kabi mazali va to‘yimli.",
@@ -987,6 +1042,7 @@
                     "ingredients": "Xamir, mol go‘shti, piyoz, zira, qora murch",
                     "price": "25 000 so‘m"
                 },
+
                 {
                     "id": 4,
                     "name": "Shashlik",
@@ -999,7 +1055,7 @@
                     "id": 11,
                     "name": "Somsa",
                     "description": "Qo‘y go‘shti, piyoz va ziravorlar bilan to‘ldirilgan, tandirda pishirilgan xamirdan tayyorlangan somsa.",
-                    "image": "https://images.unsplash.com/photo-1607530362926-8a3e7e83f7b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://safiabakery.uz/uploads/products/362_1715429417.jpg",
                     "ingredients": "Xamir, qo‘y go‘shti, piyoz, zira, qora murch",
                     "price": "12 000 so‘m"
                 },
@@ -1007,7 +1063,7 @@
                     "id": 12,
                     "name": "Norin",
                     "description": "Qo‘lda kesilgan xamir va ot go‘shtidan tayyorlangan an’anaviy Toshkent taomi.",
-                    "image": "https://images.unsplash.com/photo-1606893993787-3b1b8f789347?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://www.centralasia-travel.com/uploads/gallery/1226/naryn-01.jpg",
                     "ingredients": "Xamir, ot go‘shti, piyoz, qora murch, bulon",
                     "price": "32 000 so‘m"
                 },
@@ -1015,7 +1071,7 @@
                     "id": 13,
                     "name": "Dimlama",
                     "description": "Sabzavotlar va go‘shtdan tayyorlangan, qozonda sekin pishirilgan to‘yimli taom.",
-                    "image": "https://images.unsplash.com/photo-1619985637628-44c0ed21d35e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://thedomesticman.com/wp-content/uploads/2019/05/19-dimlama.jpg",
                     "ingredients": "Mol go‘shti, kartoshka, sabzi, qalampir, pomidor, piyoz, sarimsoq",
                     "price": "30 000 so‘m"
                 },
@@ -1023,7 +1079,7 @@
                     "id": 14,
                     "name": "Mastava",
                     "description": "Guruch, go‘sht va sabzavotlardan tayyorlangan issiq va to‘yimli sho‘rva.",
-                    "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://uzbekistan.travel/storage/app/media/wepb/gastro_turizm/Mastava/cropped-images/mastava-toshkent-2-0-0-0-0-1740113679.webp",
                     "ingredients": "Guruch, mol go‘shti, kartoshka, sabzi, piyoz, ko‘katlar",
                     "price": "22 000 so‘m"
                 },
@@ -1031,7 +1087,7 @@
                     "id": 15,
                     "name": "Qovurdoq",
                     "description": "Qo‘y yoki mol go‘shtidan tayyorlangan, sabzavotlar va ziravorlar bilan qovurilgan taom.",
-                    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://zira.uz/wp-content/uploads/2018/10/kavardak1-2.jpg",
                     "ingredients": "Mol go‘shti, piyoz, sabzi, qalampir, zira, yog‘",
                     "price": "28 000 so‘m"
                 },
@@ -1039,7 +1095,7 @@
                     "id": 16,
                     "name": "Chuchvara",
                     "description": "Go‘sht bilan to‘ldirilgan kichik chuchvaralar, issiq bulonda taqdim etiladi.",
-                    "image": "https://images.unsplash.com/photo-1606893993787-3b1b8f789347?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://api.cabinet.smart-market.uz/uploads/images/8a8386025fa36e09721ba1aa",
                     "ingredients": "Xamir, mol go‘shti, piyoz, qora murch, bulon",
                     "price": "25 000 so‘m"
                 }
@@ -1049,7 +1105,7 @@
                     "id": 5,
                     "name": "Achchiq-chuchuk",
                     "description": "Pomidor, bodring, piyoz va achchiq qalampir bilan tayyorlangan an’anaviy salat.",
-                    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://www.shutterstock.com/image-photo/tomato-salad-red-onion-achik-600nw-2175986063.jpg",
                     "ingredients": "Pomidor, bodring, piyoz, qalampir, ko‘katlar",
                     "price": "15 000 so‘m"
                 },
@@ -1057,7 +1113,7 @@
                     "id": 17,
                     "name": "Shakarob",
                     "description": "Pomidor, piyoz va yog‘ bilan tayyorlangan engil va tetiklantiruvchi salat.",
-                    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://cdn.beta.qalampir.uz/uploads/dm/f_Irpts58xjZPsQmWtJcYmV1pmVUif4B.jpg",
                     "ingredients": "Pomidor, piyoz, ko‘katlar, yog‘",
                     "price": "14 000 so‘m"
                 }
@@ -1067,7 +1123,7 @@
                     "id": 7,
                     "name": "Choy",
                     "description": "An’anaviy o‘zbek choyi, issiq yoki sovuq holda taqdim etiladi.",
-                    "image": "https://images.unsplash.com/photo-1601042879364-f397ee6cd850?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://storage.kun.uz/source/8/7U3D64d8hJvb06axZItm0uDRAIcCxFKp.jpg",
                     "ingredients": "Yashil choy, suv",
                     "price": "10 000 so‘m"
                 },
@@ -1075,7 +1131,7 @@
                     "id": 8,
                     "name": "Kompot",
                     "description": "Meva va yong‘oqlardan tayyorlangan shirin ichimlik.",
-                    "image": "https://images.unsplash.com/photo-1600271886742-f049769af988?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://simplyhomecooked.com/wp-content/uploads/2024/02/kompot-recipe.jpg",
                     "ingredients": "O‘rik, olma, suv, shakar",
                     "price": "12 000 so‘m"
                 }
@@ -1085,20 +1141,19 @@
                     "id": 9,
                     "name": "Non",
                     "description": "Issiq va yangi pishirilgan o‘zbek noni.",
-                    "image": "https://images.unsplash.com/photo-1598373182133-5235ef432a4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "image": "https://optom.app/5485-large_default/duxovka-non-1200g.jpg",
                     "ingredients": "Un, suv, xamirturush, tuz",
                     "price": "5 000 so‘m"
                 },
-                {
-                    "id": 10,
-                    "name": "Yog‘",
-                    "description": "Sariyog‘ yoki smetana sifatida ishlatiladigan qaymoq.",
-                    "image": "https://images.unsplash.com/photo-1589985270827-4bd897b9163b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                    "ingredients": "Qaymoq",
-                    "price": "8 000 so‘m"
-                }
+            
             ]
         };
+
+        // Global o'zgaruvchilar
+        let cart = [];
+        let selectedTable = null;
+        const BOT_TOKEN = '8446018868:AAGMBw9ZFI2gDP3a_XA7qpVDX4_ar76IxlU';
+        const CHAT_ID = '-4819765275';
 
         // Loader
         window.addEventListener('load', () => {
@@ -1110,6 +1165,7 @@
             
             // Menuni yuklash
             loadMenuItems();
+            setupTableSelection();
         });
 
         // Mobile Menu
@@ -1130,6 +1186,20 @@
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
+
+        // Stol tanlashni sozlash
+        function setupTableSelection() {
+            const tableOptions = document.querySelectorAll('.table-option');
+            tableOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Avval barcha tanlangan stollarni olib tashlaymiz
+                    tableOptions.forEach(opt => opt.classList.remove('selected'));
+                    // Yangisini tanlaymiz
+                    option.classList.add('selected');
+                    selectedTable = option.getAttribute('data-table');
+                });
+            });
+        }
 
         // Menuni yuklash funksiyasi
         function loadMenuItems() {
@@ -1175,9 +1245,7 @@
             `;
         }
 
-        // Cart
-        let cart = [];
-
+        // Cart funksiyalari
         function addToCart(name, price, img, quantity) {
             const priceNum = parseInt(price.replace(/[^0-9]/g, ''));
             const existingItem = cart.find(item => item.name === name);
@@ -1271,6 +1339,7 @@
             cartTotal.textContent = `Jami: ${total.toLocaleString()} so'm`;
         }
 
+        // Modal funksiyalari
         function openModal(title, description, img, ingredients, price) {
             const modal = document.getElementById('menuModal');
             const modalTitle = document.getElementById('modalTitle');
@@ -1312,14 +1381,63 @@
             quantityInput.value = quantity;
         }
 
+        // Buyurtma berish funksiyasi
         function checkout() {
             if (cart.length === 0) {
                 alert('Savat bo\'sh! Iltimos, avval mahsulot qo\'shing.');
-            } else {
-                alert('Buyurtmangiz qabul qilindi! Tez orada siz bilan bog\'lanamiz.\nJami: ' + document.getElementById('cartTotal').textContent);
-                clearCart();
-                closeCartModal();
+                return;
             }
+            
+            if (!selectedTable) {
+                alert('Iltimos, avval stolni tanlang!');
+                return;
+            }
+            
+            // Buyurtma ma'lumotlarini tayyorlash
+            let orderMessage = `🛎️ Yangi buyurtma!\n\n`;
+            orderMessage += `📋 Stol: ${selectedTable}\n\n`;
+            orderMessage += `📦 Buyurtma:\n`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = parseInt(item.price.replace(/[^0-9]/g, '')) * item.quantity;
+                total += itemTotal;
+                orderMessage += `- ${item.name} x ${item.quantity} = ${itemTotal.toLocaleString()} so'm\n`;
+            });
+            
+            orderMessage += `\n💰 Jami: ${total.toLocaleString()} so'm`;
+            orderMessage += `\n\n⏰ Vaqt: ${new Date().toLocaleString('uz-UZ')}`;
+            
+            // Telegramga xabar yuborish
+            sendTelegramMessage(orderMessage);
+            
+            alert('Buyurtmangiz qabul qilindi! Tez orada siz bilan bog\'lanamiz.\nJami: ' + document.getElementById('cartTotal').textContent);
+            clearCart();
+            closeCartModal();
+        }
+
+        // Telegramga xabar yuborish funksiyasi
+        function sendTelegramMessage(message) {
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Xabar yuborildi:', data);
+            })
+            .catch(error => {
+                console.error('Xatolik:', error);
+            });
         }
 
         // Close modals when clicking outside
